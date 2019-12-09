@@ -1,29 +1,7 @@
-from requests import Request, Session
-from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+import requests
 import json
 from datetime import datetime
 import sys
-
-url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
-parameters = {
-	'start': '1',
-	'limit': '5000',
-	'convert': 'USD'
-}
-headers = {
-	'Accepts': 'application/json',
-	'X-CMC_PRO_API_KEY': 'YOUR_API_KEY'
-}
-
-session = Session()
-session.headers.update(headers)
-
-try:
-	response = session.get(url, params=parameters)
-	data = json.loads(response.text)
-	print(data)
-except (ConnectionError, Timeout, TooManyRedirects) as e:
-	print(e)
 
 currencies = ['USD', 'ALL', 'DZD', 'ARS', 'AMD', 'AUD', 'AZN', 'BHD', 'BDT',
 'BYN', 'BMD', 'BOB', 'BAM', 'BRL', 'BGN', 'KHR', 'CAD', 'CLP', 'CNY', 'COP',
@@ -49,4 +27,3 @@ def convert_fiat(top, fiat):
 	print(f"Fetched data from coinmarketcap.com at {date}")
 
 	return requests.get(url)
-
