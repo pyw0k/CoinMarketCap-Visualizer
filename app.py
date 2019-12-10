@@ -13,15 +13,15 @@ currencies = ['USD', 'ALL', 'DZD', 'ARS', 'AMD', 'AUD', 'AZN', 'BHD', 'BDT',
 'ZAR', 'KRW', 'SSP', 'VES', 'LKR', 'SEK', 'CHF', 'THB', 'TTD', 'TND', 'TRY',
 'UGX', 'UAH', 'AED', 'UYU', 'UZS', 'VND']
 
-def convert_fiat(top, fiat):
+def convert_fiat(crypto, fiat):
 	if fiat:
 		if fiat in currencies:
-			url = f"https://api.coinmarketcap.com/v1/ticker/?convert={fiat}&limit={top}"
+			url = f"https://api.coinmarketcap.com/v1/ticker/?convert={fiat}&limit={crypto}"
 		else:
 			print("Error: Not a valid currency pair")
 			sys.exit(1)
 	else:
-		url = f"https://api.coinmarketcap.com/v1/ticker/?limit={top}"
+		url = f"https://api.coinmarketcap.com/v1/ticker/?limit={crypto}"
 
 	date = datetime.now().time()
 	print(f"Fetched data from coinmarketcap.com at {date}")

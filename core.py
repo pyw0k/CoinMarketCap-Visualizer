@@ -2,7 +2,7 @@ import requests
 
 class CoinMarketCap:
 	BASE_URL = 'https://pro-api.coinmarketcap.com'
-
+	
 	def __init__(self, api_key, version='v1', fetch_timeout=None):
 		self.api_key = api_key
 		self.version = version
