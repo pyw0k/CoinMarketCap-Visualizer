@@ -12,7 +12,7 @@ class CoinMarketCap:
 		self.session = self._init_session()
 
 	def _init_session(self):
-		session - requests.Session()
+		session = requests.Session()
 		session.headers.update({
 			'Accepts' : 'application/json',
 			'X-CMC_PRO_API_KEY': self.api_key,
